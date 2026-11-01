@@ -12,10 +12,11 @@ jobs:
         run: |
           unzip -o VYRO-github.zip -d .
           rm VYRO-github.zip
-      - name: Commit extracted files
+          rm -f .github/workflows/build.yml
+      - name: Commit extracted app source
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
-          git commit -m "Extract VYRO source files" || echo "No changes to commit"
+          git commit -m "Add extracted VYRO app source"
           git push
